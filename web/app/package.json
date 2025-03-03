@@ -3,29 +3,33 @@
   "version": "4.0.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve --mode development",
-    "build": "vue-cli-service build --modern --mode production",
-    "lint": "vue-cli-service lint"
+    "serve": "vite --port 8081",
+    "build": "vite build",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.3",
     "@heroicons/vue": "^2.0.12",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "core-js": "3.22.8",
-    "vue": "3.2.37",
+    "lucide-vue-next": "^0.477.0",
+    "reka-ui": "^2.0.2",
+    "tailwind-merge": "^3.0.2",
+    "tailwindcss-animate": "^1.0.7",
+    "vue": "^3.5.13",
     "vue-router": "4.0.16"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "5.0.4",
-    "@vue/cli-plugin-eslint": "5.0.4",
-    "@vue/cli-plugin-router": "5.0.4",
-    "@vue/cli-service": "5.0.4",
-    "@vue/compiler-sfc": "3.2.37",
-    "autoprefixer": "10.4.7",
-    "babel-eslint": "10.1.0",
-    "eslint": "7.32.0",
-    "eslint-plugin-vue": "7.20.0",
-    "postcss": "8.4.14",
-    "tailwindcss": "^3.1.8"
+    "@eslint/js": "^9.21.0",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "autoprefixer": "^10.4.7",
+    "eslint": "^9.21.0",
+    "eslint-plugin-vue": "^9.32.0",
+    "globals": "^16.0.0",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
+    "vite": "^6.2.0"
   },
   "eslintConfig": {
     "root": true,

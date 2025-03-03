@@ -17,6 +17,7 @@
     <div v-if="!collapsed" :class="name === 'undefined' ? '' : 'endpoint-group-content'">
       <slot v-for="(endpoint, idx) in endpoints" :key="idx">
         <Endpoint
+            class="mt-6 rounded-sm"
             :data="endpoint"
             :maximumNumberOfResults="20"
             @showTooltip="showTooltip"

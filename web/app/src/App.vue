@@ -1,6 +1,12 @@
 <template>
   <Loading v-if="!retrievedConfig" class="h-64 w-64 px-4" />
-  <div v-else :class="[config && config.oidc && !config.authenticated ? 'hidden' : '', 'container container-xs relative mx-auto xl:rounded xl:border xl:shadow-xl xl:my-5 p-5 pb-12 xl:pb-5 text-left dark:bg-gray-800 dark:text-gray-200 dark:border-gray-500']" id="global">
+  <div v-else 
+       :class="[
+         config && config.oidc && !config.authenticated ? 'hidden' : '', 
+         'container container-xs relative mx-auto xl:rounded xl:border xl:shadow-xl xl:my-5 p-5 pb-12 xl:pb-5 text-left dark:bg-card-dark dark:text-gray-200 dark:border-border'
+       ]" 
+       id="global">
+
     <div class="mb-2">
       <div class="flex flex-wrap">
         <div class="w-3/4 text-left my-auto">

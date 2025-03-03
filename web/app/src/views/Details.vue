@@ -1,12 +1,18 @@
 <template>
-  <router-link to="../"
-               class="absolute top-2 left-5 inline-block px-2 pb-0.5 text-sm text-black bg-gray-100 rounded hover:bg-gray-200 focus:outline-none border border-gray-200 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-500 dark:hover:bg-gray-600">
-    &larr;
+  <router-link 
+    to="../"
+    class="absolute top-0 left-0 inline-block 
+          p-2 px-4 text-sm text-black 
+          rounded-tl-sm rounded-br-sm
+           bg-gray-100 hover:bg-gray-200 
+          focus:outline-none dark:bg-button-dark 
+        dark:text-gray-200 dark:hover:bg-gray-600"
+  >
+    &larr; Home
   </router-link>
   <div>
     <slot v-if="endpointStatus">
-      <h1 class="text-xl xl:text-3xl font-mono text-gray-400">RECENT CHECKS</h1>
-      <hr class="mb-4"/>
+      <h1 class="text-xl xl:text-3xl font-mono text-gray-400 mb-4">Recent Checks</h1>
       <Endpoint
           :data="endpointStatus"
           :maximumNumberOfResults="20"
@@ -16,31 +22,9 @@
       />
       <Pagination @page="changePage"/>
     </slot>
-    <div v-if="endpointStatus && endpointStatus.key" class="mt-12">
-      <h1 class="text-xl xl:text-3xl font-mono text-gray-400">UPTIME</h1>
-      <hr/>
-      <div class="flex space-x-4 text-center text-2xl mt-6 relative bottom-2 mb-10">
-        <div class="flex-1">
-          <h2 class="text-sm text-gray-400 mb-1">Last 30 days</h2>
-          <img :src="generateUptimeBadgeImageURL('30d')" alt="30d uptime badge" class="mx-auto"/>
-        </div>
-        <div class="flex-1">
-          <h2 class="text-sm text-gray-400 mb-1">Last 7 days</h2>
-          <img :src="generateUptimeBadgeImageURL('7d')" alt="7d uptime badge" class="mx-auto"/>
-        </div>
-        <div class="flex-1">
-          <h2 class="text-sm text-gray-400 mb-1">Last 24 hours</h2>
-          <img :src="generateUptimeBadgeImageURL('24h')" alt="24h uptime badge" class="mx-auto"/>
-        </div>
-        <div class="flex-1">
-          <h2 class="text-sm text-gray-400 mb-1">Last hour</h2>
-          <img :src="generateUptimeBadgeImageURL('1h')" alt="1h uptime badge" class="mx-auto"/>
-        </div>
-      </div>
-    </div>
     <div v-if="endpointStatus && endpointStatus.key && showResponseTimeChartAndBadges" class="mt-12">
       <div class="flex items-center justify-between">
-        <h1 class="text-xl xl:text-3xl font-mono text-gray-400">RESPONSE TIME</h1>
+        <h1 class="text-xl xl:text-3xl font-mono text-gray-400">Response Time</h1>
         <select v-model="selectedChartDuration"  class="text-sm bg-gray-400 text-white border border-gray-600 rounded-md px-3 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
           <option value="24h">24 hours</option>
           <option value="7d">7 days</option>
@@ -68,8 +52,7 @@
       </div>
     </div>
     <div v-if="endpointStatus && endpointStatus.key">
-      <h1 class="text-xl xl:text-3xl font-mono text-gray-400 mt-4">CURRENT HEALTH</h1>
-      <hr />
+      <h1 class="text-xl xl:text-3xl font-mono text-gray-400 mt-4">Current Health</h1>
       <div class="flex space-x-4 text-center text-2xl mt-6 relative bottom-2 mb-10">
         <div class="flex-1">
           <img :src="generateHealthBadgeImageURL()" alt="health badge" class="mx-auto"/>
@@ -77,8 +60,7 @@
       </div>
     </div>
     <div v-if="endpointStatus && endpointStatus.key">
-      <h1 class="text-xl xl:text-3xl font-mono text-gray-400 mt-4">EVENTS</h1>
-      <hr />
+      <h1 class="text-xl xl:text-3xl font-mono text-gray-400 mt-4">Events</h1>
       <ul role="list" class="px-0 xl:px-24 divide-y divide-gray-200 dark:divide-gray-600">
         <li v-for="event in events" :key="event" class="p-3 my-4">
           <h2 class="text-sm sm:text-lg">

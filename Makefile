@@ -6,7 +6,7 @@ install:
 
 .PHONY: run
 run:
-	GATUS_CONFIG_PATH=./config.yaml ./$(BINARY)
+	GATUS_CONFIG_PATH=./config.yaml ENVIRONMENT=dev ./$(BINARY)
 
 .PHONY: clean
 clean:
